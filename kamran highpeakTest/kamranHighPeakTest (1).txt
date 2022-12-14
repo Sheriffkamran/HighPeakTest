@@ -1,0 +1,50 @@
+package Assignment;
+
+import java.util.Scanner;
+
+public class HighPeakTest 
+{
+	
+	public static void main(String[] args) 
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		int size = sc.nextInt();
+		int[][] b = new int[size][3];
+		for(int i=0;i<b.length;i++)
+		{
+			for(int j=0;j<b[0].length;j++)
+			{
+				b[i][j] = sc.nextInt();
+			}
+		}
+
+		
+		int result[] = test(b);
+		
+		for(int i: result)
+		{
+			System.out.println(i);
+		}
+	}
+	
+	
+	public static int[] test(int[][] a)
+	{
+		int max = a[0][2];
+		int add = 0;
+		for(int i=0;i<a.length;i++)
+		{
+			add+=a[i][2];
+			if(max<a[i][2])
+				max = a[i][2];
+		}
+	
+		
+		int[] result = new int[2];
+		result[0] = a.length-1;
+		result[1] = add-max;
+		
+		return result;	
+	}
+}
